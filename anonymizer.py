@@ -35,13 +35,13 @@ def anonymize():
 	if regex_variable == "custom":
 		regex_variable = w10_customtext.get()
 		if re.match(r'\W', regex_variable):
-			messagebox.showinfo("Invalid Characters", "Only numbers and letters allowed")
+			messagebox.showinfo("Invalid characters", "Only numbers and letters allowed")
 			return
 		else:
 			regex_variable = r'\1' + regex_variable + '<'
 	for sdl_file in sdl_files:
 			if os.path.isfile(os.path.dirname(sdl_file) + "\\anonym\\" + os.path.basename(sdl_file)):
-				messagebox.showinfo("File already exists", "The file " + sdl_file + " is already anonimized.")
+				messagebox.showinfo("File already exists", "The file " + sdl_file + " is already anonymized.")
 				continue
 			if not os.path.isfile(sdl_file):
 				messagebox.showinfo("Error", "File " + sdl_file + " was not found.")
@@ -94,7 +94,7 @@ def add_files():
 			if sdl_file in sdl_files:
 				continue
 			if os.path.isfile(os.path.dirname(sdl_file) + "\\anonym\\" + os.path.basename(sdl_file)):
-				messagebox.showinfo("File already exists", "The file " + os.path.basename(sdl_file) + " is already anonimized.")
+				messagebox.showinfo("File already exists", "The file " + os.path.basename(sdl_file) + " is already anonymized.")
 				continue
 			if sdl_file.lower().endswith('.sdlrpx'):
 				sdl_files.append(sdl_file)
