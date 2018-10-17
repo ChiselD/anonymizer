@@ -4,10 +4,10 @@ from tkinter import messagebox
 import os, re, subprocess, sys
 
 def get_zippath():
-	if os.path.isdir(r"C:\Program Files\7-Zip") == True:
+	if os.path.isdir(r"C:\Program Files\7-Zip"):
 		zippath = r"C:\Program Files\7-Zip\7z.exe"
 		return zippath
-	elif os.path.isdir(r"C:\Program Files (x86)\7-Zip") == True:
+	elif os.path.isdir(r"C:\Program Files (x86)\7-Zip"):
 		zippath = r"C:\Program Files (x86)\7-Zip\7z.exe"
 		return zippath
 	else:
@@ -77,13 +77,13 @@ def anonymize():
 				os.rename(packagename, packagename.replace('.zip', ''))
 				os.rmdir(packagepath)
 			else:
-				messagebox.showinfo("Error", "Invalid file type")					
+				messagebox.showinfo("Error", "Invalid file type")
 	w4_listbox.delete(0,tk.END)
 	sdl_files.clear()
 	xliffs_in_package.clear()
 	messagebox.showinfo("Completed", "All files anonymized")
 	return sdl_files
-	
+
 def add_files():
 	selected_files = filedialog.askopenfilenames(title="Select files", filetypes = [("sdl files", "*.sdlxliff *.wsxz *.sdlrpx")])
 	selected_files = list(selected_files)
@@ -130,7 +130,7 @@ xliffs_in_package = []
 zippath = get_zippath()
 
 logo = tk.PhotoImage(file="anon.gif")
-logo = logo.subsample(5)	
+logo = logo.subsample(5)
 gui.title("Anonymizer")
 gui.configure(bg = "black")
 gui.geometry("370x450")
